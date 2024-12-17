@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* 
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+} */
+
+input[type='checkbox'] {
+  appearance: none;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #4ea8de;
+  position: relative;
+  outline: none;
+  cursor: pointer;
+  display: inline-block;
+}
+
+input[type='checkbox']:checked {
+  border: none;
+  background-color: #5e60ce;
+}
+
+input[type='checkbox']:checked::before {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 7px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 7" fill="none"><path d="M8.43071 0.342139L4.09877 4.67408L1.6163 2.19161L0.780396 3.02751L4.09877 6.34589L9.26661 1.17804L8.43071 0.342139Z" fill="%23F2F2F2"/></svg>')
+    no-repeat center;
+  background-size: contain;
+}
+
+.input {
+  border-radius: 8px;
+  border: 1.5px solid rgba(217, 217, 217, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  padding: 16px;
+  outline: none;
+}
+
+.input::placeholder {
+  color: #f2f2f2;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 26px; /* 216.667% */
+}
+
+.input:focus {
+  border: 1.5px solid #0372ff;
+}
+
+/* Error state for the input fields */
+.input-error {
+  border: 1px solid #f34335;
+}
+
+/* Large screens (min-width: 1024px) */
+@media (min-width: 1024px) {
+  .input::placeholder {
+    font-size: 10px;
+  }
+
+  .input {
+    padding: 8px;
+    border-radius: 6px;
+  }
+}
+
+/* Extra large screens (min-width: 1280px) */
+@media (min-width: 1280px) {
+  .input::placeholder {
+    font-size: 12px;
+  }
+
+  .input {
+    padding: 12px;
+    border-radius: 8px;
+  }
+}
+
+/* Extra large screens (min-width: 1280px) */
+@media (min-width: 1536px) {
+  .input::placeholder {
+    font-size: 14px;
+  }
+
+  .input {
+    padding: 12px;
+    border-radius: 10px;
+  }
+}
