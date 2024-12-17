@@ -25,11 +25,9 @@ export const getTaskById = async (id: string) => {
 export const createTask = async (data: { title: string; color: string }) => {
   try {
     const response = await apiClient.post('/', data);
-    toast.success('Task created successfully!');
     return response.data;
   } catch (error: unknown) {
     toast.error('Failed to create task.');
-    throw new Error('Failed to create task: ' + (error as Error).message);
   }
 };
 
@@ -43,18 +41,11 @@ export const updateTask = async (
     return response.data;
   } catch (error: unknown) {
     toast.error('Failed to update task.');
-    throw new Error('Failed to update task: ' + (error as Error).message);
   }
 };
 
 // Delete a task
 export const deleteTask = async (id: number) => {
-  try {
     await apiClient.delete(`/${id}`);
-    toast.success('Task deleted successfully!');
     return { success: true };
-  } catch (error: unknown) {
-    toast.error('Failed to delete task.');
-    throw new Error('Failed to delete task: ' + (error as Error).message);
-  }
 };

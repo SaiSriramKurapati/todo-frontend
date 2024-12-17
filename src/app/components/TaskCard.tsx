@@ -6,6 +6,7 @@ import { deleteTask, updateTask } from '@/lib/api';
 import clsx from 'clsx';
 import { useTasks } from '../context/TasksContext';
 import ConfirmModal from '../modals/ConfirmModal';
+import toast from 'react-hot-toast';
 
 interface TaskCardProps {
   task: {
@@ -25,11 +26,13 @@ const TaskCard: React.FC<TaskCardProps> = ({ task }) => {
   const handleDelete = async () => {
     try {
       await deleteTask(task.id);
+      toast.success('Task deleted successfully!');
       setModalOpen(false);
       // Optimistically update: remove the task from UI
       removeTask(task.id);
     } catch (error) {
       console.error('Failed to delete task:', error);
+      toast.error('Failed to delete task.');
     }
   };
 

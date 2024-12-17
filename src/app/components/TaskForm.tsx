@@ -77,11 +77,13 @@ const TaskForm: React.FC<TaskFormProps> = ({ task }) => {
         toast.success('Task updated successfully!');
       } else {
         await createTask({ title, color });
+        toast.success('Task created successfully!');
       }
       // Reset form state only after successful submission
       router.push('/');
     } catch (error) {
       console.error('Error saving task:', error);
+      
     }
   };
 
